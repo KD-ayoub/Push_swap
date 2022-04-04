@@ -6,7 +6,7 @@
 /*   By: akadi <akadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 15:45:40 by akadi             #+#    #+#             */
-/*   Updated: 2022/04/03 18:02:55 by akadi            ###   ########.fr       */
+/*   Updated: 2022/04/04 17:29:25 by akadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,115 +69,77 @@ int	ft_isint(char *number, char *max, char *min)
 	return (0);
 }
 
-int duplicate(int ac, char ***av)
+int duplicate(int ac, char **av)
 {
     int i;
     int j;
-    int k;
-    int len;
-    char **arr;
 
-    i = 0; 
-    len = 0;
-    while (i < ac -1)
-    {
-        j = 0;
-        while(av[i][j])
-        {
-            len++;
-            j++;
-        }
-        i++;
-    }
-    arr = malloc(sizeof(char *) * len);
-    k = 0;
     i = 0;
-    j = 0;
     while (av[i])
     {
-        j = 0;
-        while (av[i][j])
-        {
-            arr[k++] = av[i][j];
-            j++;
-        }
-        i++;
-    }
-    i = 0;
-    while (i < len)
-    {
-        if ( !ft_isnbr(arr[i]) || ft_isint(arr[i],"2147483647","-2147483648"))
+        if ( !ft_isnbr(av[i]) || ft_isint(av[i],"2147483647","-2147483648"))
             return (0);
         i++;
     }
     i = 0;
-    while (arr[i])
+    while (av[i])
     {
         j = i + 1;
-        while (arr[j] && j < len)
+        while (av[j])
         {
-            if (ft_atoi(arr[i]) == ft_atoi(arr[j]))
+            if (ft_atoi(av[i]) == ft_atoi(av[j]))
             {
-                free(arr);
                 return (0);
             }
             j++;
         }
         i++;
     }
-    free(arr);
     return (1);
+}
+char **split_int(char **av)
+{
+    char *str;
+    char **split;
+    int i;
+
+    i = 1;
+    str = ft_strdup("");
+    while (av[i])
+    {
+        str = ft_strjoin(av[i],str);
+        i++;
+    }
+    split = ft_split(str,' ');
+    return (split);
 }
 int check_error(int ac, char **av)
 {
-    int len;
     int i;
-    char ***numbers;
-    numbers = malloc(sizeof(char **) * ac - 1);
+    int j;
 
-    i = 1;
-    int j = 0;
-    while(i <= ac)
-    {
-        numbers[j++] = ft_split(av[i],' ');
-        i++;
-    }
-    if (ac < 2 || !duplicate(ac, numbers))
+    i = 0;
+    j = 0;
+    if (!duplicate(ac, av))
     { 
-        i = 0;
-        while(numbers[i])
-        {
-            j = 0;
-            while(numbers[i][j])
-            {
-                free(numbers[i][j++]);
-            }
-            free(numbers[i]);
-            i++;
-        }
-        free(numbers);
         return (0);
     }
-    
-  
-    i = 0;
-    while(numbers[i])
-    {
-        j = 0;
-        while(numbers[i][j])
-        {
-            free(numbers[i][j++]);
-        }
-        free(numbers[i]);
-        i++;
-    }
-    free(numbers);
     return (1);
 }
 
 int main(int ac, char **av)
 {
-    if (!check_error(ac, av) || ac == 1)
+    char **split;
+    int i;
+
+    split = split_int(av);
+    // i = 0;
+    // while(split[i])
+    // {
+    //     printf("%s\n",split[i]);
+    //     i++;
+    // }
+    if (!check_error(ac, split))
     {
         write(1, "Error\n",6);
     }
