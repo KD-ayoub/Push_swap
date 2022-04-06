@@ -140,14 +140,14 @@ int main ()
     c = 2;
     *stack_b = NULL;
     *stack_a = NULL;
-    ft_lstadd_front(stack_a, ft_lstnew (a));
-    ft_lstadd_front(stack_a, ft_lstnew (b));
-    ft_lstadd_front(stack_a, ft_lstnew (c));
-    rotate_rra(stack_a, *stack_a);
+    ft_lstadd_back(stack_a, ft_lstnew (a));
+    ft_lstadd_back(stack_a, ft_lstnew (b));
+    ft_lstadd_back(stack_a, ft_lstnew (c));
     ft_lstprint (*stack_a);
-    push_b(stack_a, stack_b);
-    push_b(stack_a, stack_b);
-    push_b(stack_a, stack_b);
-    ft_lstprint (*stack_b);
+    // rotate_rra(stack_a, *stack_a);
+    // push_b(stack_a, stack_b);
+    // push_b(stack_a, stack_b);
+    // push_b(stack_a, stack_b);
+    // ft_lstprint (*stack_b);
     // swap_b(stack_b, *stack_b);
 }

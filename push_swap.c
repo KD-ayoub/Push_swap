@@ -1,0 +1,47 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akadi <akadi@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/05 15:23:43 by akadi             #+#    #+#             */
+/*   Updated: 2022/04/06 18:21:08 by akadi            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "header.h"
+
+t_list **fill_stack(t_list **stack_a, char **split)
+{
+    int i;
+    
+    i = 0;
+    *stack_a = NULL;
+    while (split[i])
+    {
+        ft_lstadd_back(stack_a, ft_lstnew(ft_atoi(split[i])));
+        i++;
+    }
+    return (stack_a);
+}
+int main(int ac, char **av)
+{
+    char    **split;
+    t_list  **stack_a;
+    t_list  **stack_b;
+
+    split = split_int(av);
+    if (!check_error(ac, split))
+    {
+        write(1, "Error\n",6);
+        exit(0);
+    }
+    else
+    {
+        stack_a = malloc(sizeof(t_list *));
+        stack_a = fill_stack(stack_a,split);
+    }
+    sort_stack(stack_a, stack_b);
+    return (0);
+}

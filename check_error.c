@@ -6,7 +6,7 @@
 /*   By: akadi <akadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 15:45:40 by akadi             #+#    #+#             */
-/*   Updated: 2022/04/04 17:29:25 by akadi            ###   ########.fr       */
+/*   Updated: 2022/04/06 14:46:03 by akadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,9 +88,7 @@ int duplicate(int ac, char **av)
         while (av[j])
         {
             if (ft_atoi(av[i]) == ft_atoi(av[j]))
-            {
                 return (0);
-            }
             j++;
         }
         i++;
@@ -121,27 +119,7 @@ int check_error(int ac, char **av)
     i = 0;
     j = 0;
     if (!duplicate(ac, av))
-    { 
         return (0);
-    }
     return (1);
 }
 
-int main(int ac, char **av)
-{
-    char **split;
-    int i;
-
-    split = split_int(av);
-    // i = 0;
-    // while(split[i])
-    // {
-    //     printf("%s\n",split[i]);
-    //     i++;
-    // }
-    if (!check_error(ac, split))
-    {
-        write(1, "Error\n",6);
-    }
-    return (0);
-}
