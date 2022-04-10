@@ -6,7 +6,7 @@
 /*   By: akadi <akadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 15:45:40 by akadi             #+#    #+#             */
-/*   Updated: 2022/04/06 14:46:03 by akadi            ###   ########.fr       */
+/*   Updated: 2022/04/09 23:32:36 by akadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,25 +20,25 @@ int	ft_isdigit(int c)
 }
 int ft_isnbr(char *av)
 {
-    int i;
-    int len;
+	int i;
+	int len;
 
-    i = 0;
-    len = ft_strlen(av);
-    if (av[i] == '-' || av[i] == '+')
-    {
-        i = 1;
-        if (len == 1)
-            return (0);
-    }
-    while (i < len)
-    {
-        if (!ft_isdigit(av[i]))
-            return (0);
-        i++;
-    }
-    return (1);
-    
+	i = 0;
+	len = ft_strlen(av);
+	if (av[i] == '-' || av[i] == '+')
+	{
+		i = 1;
+		if (len == 1)
+			return (0);
+	}
+	while (i < len)
+	{
+		if (!ft_isdigit(av[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+	
 }
 int	ft_isint(char *number, char *max, char *min)
 {
@@ -69,57 +69,58 @@ int	ft_isint(char *number, char *max, char *min)
 	return (0);
 }
 
-int duplicate(int ac, char **av)
+int duplicate(char **av)
 {
-    int i;
-    int j;
+	int i;
+	int j;
 
-    i = 0;
-    while (av[i])
-    {
-        if ( !ft_isnbr(av[i]) || ft_isint(av[i],"2147483647","-2147483648"))
-            return (0);
-        i++;
-    }
-    i = 0;
-    while (av[i])
-    {
-        j = i + 1;
-        while (av[j])
-        {
-            if (ft_atoi(av[i]) == ft_atoi(av[j]))
-                return (0);
-            j++;
-        }
-        i++;
-    }
-    return (1);
+	i = 0;
+	while (av[i])
+	{
+		if ( !ft_isnbr(av[i]) || ft_isint(av[i],"2147483647","-2147483648"))
+			return (0);
+		i++;
+	}
+	i = 0;
+	while (av[i])
+	{
+		j = i + 1;
+		while (av[j])
+		{
+			if (ft_atoi(av[i]) == ft_atoi(av[j]))
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
 }
 char **split_int(char **av)
 {
-    char *str;
-    char **split;
-    int i;
+	char *str;
+	char **split;
+	int i;
 
-    i = 1;
-    str = ft_strdup("");
-    while (av[i])
-    {
-        str = ft_strjoin(av[i],str);
-        i++;
-    }
-    split = ft_split(str,' ');
-    return (split);
+	i = 1;
+	str = ft_strdup("");
+	while (av[i])
+	{
+		str = ft_strjoin(av[i],str);
+		i++;
+	}
+	split = ft_split(str,' ');
+	return (split);
 }
 int check_error(int ac, char **av)
 {
-    int i;
-    int j;
+	int i;
+	int j;
 
-    i = 0;
-    j = 0;
-    if (!duplicate(ac, av))
-        return (0);
-    return (1);
+	(void)ac;
+	i = 0;
+	j = 0;
+	if (!duplicate(av))
+		return (0);
+	return (1);
 }
 
