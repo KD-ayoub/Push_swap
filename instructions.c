@@ -6,7 +6,7 @@
 /*   By: akadi <akadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 17:54:38 by akadi             #+#    #+#             */
-/*   Updated: 2022/04/06 18:25:40 by akadi            ###   ########.fr       */
+/*   Updated: 2022/04/11 19:53:08 by akadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 t_list swap_a(t_list **stack, t_list *list,int check)
 {
+  (void)stack;
   int tmp;
   
   tmp = list -> content;
@@ -26,6 +27,7 @@ t_list swap_a(t_list **stack, t_list *list,int check)
 
 t_list swap_b(t_list **stack, t_list *list, int check)
 {
+  (void)stack;
   int tmp;
   
   tmp = list -> content;
@@ -38,7 +40,7 @@ t_list swap_b(t_list **stack, t_list *list, int check)
 
 void push_a(t_list **stack_a, t_list **stack_b)
 {
-  t_list *lista = *stack_a; 
+  //t_list *lista = *stack_a; 
   t_list *listb = *stack_b;
   
   *stack_b = (*stack_b) -> next;
@@ -49,7 +51,7 @@ void push_a(t_list **stack_a, t_list **stack_b)
 void push_b(t_list **stack_a, t_list **stack_b)
 {
   t_list *lista = *stack_a; 
-  t_list *listb = *stack_b;
+  //t_list *listb = *stack_b;
   
   *stack_a = (*stack_a) -> next;
   ft_lstadd_front(stack_b, lista);
@@ -70,7 +72,8 @@ t_list *rotate_rra(t_list **stack, t_list *list, int check)
   p -> next = NULL;
   newh -> next = list;
   *stack = newh;
-  write(1, "rra\n", 4);
+  if (check == 1)
+    write(1, "rra\n", 4);
   return (newh);
 }
 
@@ -88,12 +91,14 @@ t_list *rotate_rrb(t_list **stack, t_list *list, int check)
   p -> next = NULL;
   newh -> next = list;
   *stack = newh;
-  write(1, "rrb\n", 4);
+  if (check == 1)
+    write(1, "rrb\n", 4);
   return (newh);
 }
 
 t_list *rotate_rb(t_list **stack, t_list *list, int check)
 {
+  (void)stack;
   t_list *p = list;
   t_list *newh;
   while (p -> next != NULL)
@@ -108,6 +113,7 @@ t_list *rotate_rb(t_list **stack, t_list *list, int check)
 
 t_list *rotate_ra(t_list **stack, t_list *list, int check)
 {
+  (void)stack;
   t_list *p = list;
   t_list *newh;
   while (p -> next != NULL)

@@ -6,7 +6,7 @@
 /*   By: akadi <akadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 01:41:43 by akadi             #+#    #+#             */
-/*   Updated: 2022/04/10 02:48:14 by akadi            ###   ########.fr       */
+/*   Updated: 2022/04/11 22:11:00 by akadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,19 +40,35 @@ int	position_smallest(t_list **stack_a, int small, int len)
 	}
 	return (0);
 }
-void	sort_4and_5(t_list **stack_a, t_list **stack_b, int len)
+void	push_smallest(t_list **stack_a, t_list **stack_b, int len)
 {
-	if (len == 4)
-	{
-		if (position_smallest(stack_a, find_smallest(stack_a, len), len) < len/2)
+	if (position_smallest(stack_a, find_smallest(stack_a, len), len) <= len/2)
 		{
 			while (((*stack_a) -> content) != find_smallest(stack_a, len))
-				rotate_ra(stack_a, *stack_a, 1);
+				*stack_a = rotate_ra(stack_a, *stack_a, 1);
 		}
 		else
 		{
 			while(((*stack_a) -> content) != find_smallest(stack_a,len))
-				rotate_rra(stack_a, *stack_a, 1);
+				*stack_a = rotate_rra(stack_a, *stack_a, 1);
 		}
+		push_b(stack_a, stack_b);
+}
+void	sort_4and_5(t_list **stack_a, t_list **stack_b, int len)
+{
+	(void)stack_b;
+	if (len == 4)
+	{
+		push_smallest(stack_a, stack_b, len);
+		sort_3(stack_a);
+		push_a(stack_a, stack_b);
+	}
+	if (len == 5)
+	{
+		push_smallest(stack_a, stack_b, len);
+		push_smallest(stack_a, stack_b, len - 1);
+		sort_3(stack_a);
+		push_a(stack_a, stack_b);
+		push_a(stack_a, stack_b);
 	}
 }

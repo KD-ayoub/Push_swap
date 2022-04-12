@@ -37,16 +37,15 @@ void    ft_lstprint(t_list *lst)
         temp = temp->next;
     }
 }
-t_list *rotate_ra(t_list **stack, t_list *list)
+void rotate_ra(t_list **stack, t_list **list)
 {
-  t_list *p = list;
-  t_list *newh;
-  while (p -> next != NULL)
-    p = p -> next;
-  newh = list -> next;
-  list -> next = NULL;
-  p -> next = list;
-  return (newh);
+  t_list *last;
+
+  last = (*list);
+  while (last -> next)
+    last = last -> next;
+  (*list) -> next = NULL;
+  last -> next = *list;
 }
 t_list *rotate_rb(t_list **stack, t_list *list)
 {
@@ -144,7 +143,8 @@ int main ()
     ft_lstadd_back(stack_a, ft_lstnew (b));
     ft_lstadd_back(stack_a, ft_lstnew (c));
     ft_lstprint (*stack_a);
-    // rotate_rra(stack_a, *stack_a);
+    rotate_ra(stack_a, *stack_a);
+    ft_lstprint(*stack_a);
     // push_b(stack_a, stack_b);
     // push_b(stack_a, stack_b);
     // push_b(stack_a, stack_b);

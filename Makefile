@@ -6,14 +6,14 @@
 #    By: akadi <akadi@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/06 20:27:44 by akadi             #+#    #+#              #
-#    Updated: 2022/04/10 02:55:32 by akadi            ###   ########.fr        #
+#    Updated: 2022/04/11 22:08:26 by akadi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # CFLAGS = -Wall -Wextra -Werror
 CC= cc
 NAME=push_swap
-FLAGS= -Wall -Wextra -Werror
+CFLAGS= -Wall -Wextra -Werror
 SRCS=push_swap.c\
 	check_error.c\
 	instructions.c\
@@ -24,6 +24,7 @@ SRCS=push_swap.c\
 	ft_lstnew.c\
 	sort_3.c\
 	sort_4and_5.c\
+	sort_100.c\
 
 OBJS=$(SRCS:.c=.o)
 INCL= push_swap.h
@@ -37,12 +38,12 @@ all:$(NAME)
 						██║░░░░░╚██████╔╝██████╔╝██║░░██║░░░░░░██████╔╝░░╚██╔╝░╚██╔╝░██║░░██║██║░░░░░\n\
 						╚═╝░░░░░░╚═════╝░╚═════╝░╚═╝░░╚═╝░░░░░░╚═════╝░░░░╚═╝░░░╚═╝░░╚═╝░░╚═╝╚═╝░░░░░\n\033[0m"
 %.o: %.c $(INCL)
-	$(CC) $(FLAGS) $< $(INCL) -c -g
+	$(CC) $(CFLAGS) $< $(INCL) -c -g
 
 $(NAME):$(OBJS)
 	make -C ./libft
 	mv ./libft/libft.a .
-	$(CC) $(FLAGS) $(OBJS) libft.a -o $(NAME) -g
+	$(CC) $(CFLAGS) $(OBJS) libft.a -o $(NAME) -g
 
 clean:
 	rm -rf *.o

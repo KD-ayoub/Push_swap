@@ -6,7 +6,7 @@
 /*   By: akadi <akadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 17:52:58 by akadi             #+#    #+#             */
-/*   Updated: 2022/04/10 02:50:01 by akadi            ###   ########.fr       */
+/*   Updated: 2022/04/12 01:11:25 by akadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,7 @@ int		list_index(t_list **stack_a, int index);
 void	sort_4and_5(t_list **stack_a, t_list **stack_b, int len);
 int		position_smallest(t_list **stack_a, int small, int len);
 int		find_smallest(t_list **stack_a, int len);
+void	push_smallest(t_list **stack_a, t_list **stack_b, int len);
+void	sort_100(t_list **stack_a, t_list **stack_b, int len);
 
 #endif

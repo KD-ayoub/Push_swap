@@ -6,7 +6,7 @@
 /*   By: akadi <akadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 13:55:27 by akadi             #+#    #+#             */
-/*   Updated: 2022/04/06 20:51:55 by akadi            ###   ########.fr       */
+/*   Updated: 2022/04/12 01:15:47 by akadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,12 @@ void	ft_lstadd_back(t_list **lst, t_list *tnew)
 {
 	t_list	*p;
 
-	p = NULL;
+	p = *lst;
 	if (*lst == NULL)
 	{
 		*lst = tnew;
 		return ;
 	}
-	p = *lst;
 	while (p -> next)
 		p = p -> next;
 	p -> next = tnew;

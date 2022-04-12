@@ -6,7 +6,7 @@
 /*   By: akadi <akadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 15:42:56 by akadi             #+#    #+#             */
-/*   Updated: 2022/04/10 01:42:59 by akadi            ###   ########.fr       */
+/*   Updated: 2022/04/11 22:08:47 by akadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void	sort_by_len(t_list **stack_a, t_list **stack_b, int len)
 		sort_3(stack_a);
 	if (len > 3 && len <= 5)
 		sort_4and_5(stack_a, stack_b, len);
+	if (len >= 6 && len <= 100)
+		sort_100(stack_a, stack_b, len);
 }
 
 void	sort_stack(t_list **stack_a, t_list **stack_b)

@@ -6,7 +6,7 @@
 /*   By: akadi <akadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 15:23:43 by akadi             #+#    #+#             */
-/*   Updated: 2022/04/09 23:32:28 by akadi            ###   ########.fr       */
+/*   Updated: 2022/04/12 01:11:09 by akadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,10 @@ int main(int ac, char **av)
 	t_list  **stack_a;
 	t_list  **stack_b;
 
-	stack_b = NULL;
+	stack_a = malloc(sizeof(t_list *));
+	stack_b = malloc(sizeof(t_list *));
+	*stack_b = NULL;
+	*stack_a = NULL;
 	if (ac == 1)
 		return (0);
 	split = split_int(av);
@@ -42,7 +45,6 @@ int main(int ac, char **av)
 	}
 	else
 	{
-		stack_a = malloc(sizeof(t_list *));
 		stack_a = fill_stack(stack_a,split);
 	}
 	sort_stack(stack_a, stack_b);
