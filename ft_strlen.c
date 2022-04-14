@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akadi <akadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/03 18:30:56 by akadi             #+#    #+#             */
-/*   Updated: 2022/04/14 02:05:01 by akadi            ###   ########.fr       */
+/*   Created: 2021/11/09 16:21:22 by akadi             #+#    #+#             */
+/*   Updated: 2022/04/14 02:43:14 by akadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-t_list	*ft_lstnew(int content)
+size_t	ft_strlen(const char *s)
 {
-	t_list	*ptr;
+	int	i;
 
-	ptr = malloc(sizeof(t_list));
-	if (!ptr)
-		return (NULL);
-	ptr -> content = content;
-	ptr -> next = NULL;
-	return (ptr);
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
 }

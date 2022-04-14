@@ -6,7 +6,7 @@
 #    By: akadi <akadi@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/06 20:27:44 by akadi             #+#    #+#              #
-#    Updated: 2022/04/11 22:08:26 by akadi            ###   ########.fr        #
+#    Updated: 2022/04/14 02:42:41 by akadi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,15 @@ SRCS=push_swap.c\
 	sort_3.c\
 	sort_4and_5.c\
 	sort_100.c\
+	radix_sort.c\
+	ft_atoi.c\
+	ft_itoa.c\
+	ft_lstlast.c\
+	ft_lstsize.c\
+	ft_split.c\
+	ft_strjoin.c\
+	ft_strlen.c\
+	ft_strncmp.c\
 
 OBJS=$(SRCS:.c=.o)
 INCL= push_swap.h
@@ -41,9 +50,7 @@ all:$(NAME)
 	$(CC) $(CFLAGS) $< $(INCL) -c -g
 
 $(NAME):$(OBJS)
-	make -C ./libft
-	mv ./libft/libft.a .
-	$(CC) $(CFLAGS) $(OBJS) libft.a -o $(NAME) -g
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) -g
 
 clean:
 	rm -rf *.o

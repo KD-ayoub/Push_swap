@@ -6,7 +6,7 @@
 /*   By: akadi <akadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 17:52:58 by akadi             #+#    #+#             */
-/*   Updated: 2022/04/12 01:11:25 by akadi            ###   ########.fr       */
+/*   Updated: 2022/04/14 02:43:21 by akadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,27 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <limits.h>
-#include "libft/libft.h"
+//#include "libft/libft.h"
 
+typedef struct s_list
+{
+	int				content;
+	struct s_list	*next;
+}t_list;
 
-
+int		ft_atoi(const char *str);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
+size_t		ft_strlen(const char *s);
+char    *ft_strjoin(char *buffers, char *buff);
+char	**ft_split(char const *s, char c);
+int		ft_lstsize(t_list *lst);
+char	*ft_itoa(int n);
+int		ft_isdigit(int c);
 void	ft_lstprint(t_list *lst);
+void	ft_lstadd_front(t_list **alst, t_list *tnew);
+t_list	*ft_lstlast(t_list *lst);
+void	ft_lstadd_back(t_list **lst, t_list *tnew);
+t_list	*ft_lstnew(int content);
 int		check_error(int ac, char **av);
 char	**split_int(char **av);
 int		duplicate(char **av);
@@ -47,5 +63,7 @@ int		position_smallest(t_list **stack_a, int small, int len);
 int		find_smallest(t_list **stack_a, int len);
 void	push_smallest(t_list **stack_a, t_list **stack_b, int len);
 void	sort_100(t_list **stack_a, t_list **stack_b, int len);
+void	radix_sort(t_list **stack_a, t_list **stack_b, int len);
+
 
 #endif

@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akadi <akadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/03 18:30:56 by akadi             #+#    #+#             */
-/*   Updated: 2022/04/14 02:05:01 by akadi            ###   ########.fr       */
+/*   Created: 2021/12/09 13:53:10 by akadi             #+#    #+#             */
+/*   Updated: 2022/04/14 02:27:06 by akadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-t_list	*ft_lstnew(int content)
+t_list	*ft_lstlast(t_list *lst)
 {
-	t_list	*ptr;
+	t_list	*temp;
 
-	ptr = malloc(sizeof(t_list));
-	if (!ptr)
-		return (NULL);
-	ptr -> content = content;
-	ptr -> next = NULL;
-	return (ptr);
+	temp = lst;
+	if (temp != NULL)
+		while (temp->next)
+			temp = temp->next;
+	return (temp);
 }
+/*
+int main()
+{
+    t_list *node1;
+    t_list *head;
+    head = malloc(sizeof(t_list));
+    node1 = malloc(sizeof(t_list));
+    head -> next = node1;
+    node1 -> next = NULL;
+    printf("%d",ft_lstsize(head));
+    return 0;
+}*/

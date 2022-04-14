@@ -6,7 +6,7 @@
 /*   By: akadi <akadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 15:45:40 by akadi             #+#    #+#             */
-/*   Updated: 2022/04/12 00:27:10 by akadi            ###   ########.fr       */
+/*   Updated: 2022/04/14 02:18:29 by akadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ char **split_int(char **av)
 	char **split;
 	int i;
 
-	i = 1;
+	i = 1; 
 	while (av[i])
 	{
 		str = ft_strjoin(ft_strjoin(str, av[i]), " ");

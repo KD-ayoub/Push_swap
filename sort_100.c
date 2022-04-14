@@ -6,7 +6,7 @@
 /*   By: akadi <akadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 21:57:29 by akadi             #+#    #+#             */
-/*   Updated: 2022/04/13 02:40:53 by akadi            ###   ########.fr       */
+/*   Updated: 2022/04/14 01:45:43 by akadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,24 +65,29 @@ int	*sort_array(int *arr, int len)
 		}
 		i++;
 	}
+
+	
 	return (arr);
 }
 void	sort_100(t_list **stack_a, t_list **stack_b, int len)
 {
 	(void)stack_b;
 	int		i;
-	int		*arr;
+	int		arr[len];
+	int		*pt;
 	t_list	*p;
 
-	arr = malloc(sizeof(int) * len);
+	//arr = malloc(sizeof(int) * ft_lstsize(*stack_a));
 	p = *stack_a;
+	pt = arr;
 	i = 0;
-	while (i < len)
+	while (i < len - 1)
 	{
 		arr[i] = p -> content;
 		p = p -> next;
 		i++;
 	}
-	arr = sort_array(arr, len);
+	pt = sort_array(pt, len);
 	*stack_a = change_stack_a(stack_a, arr, len);
+	//radix_sort(stack_a, stack_b, len);
 }
