@@ -6,7 +6,7 @@
 /*   By: akadi <akadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 17:52:58 by akadi             #+#    #+#             */
-/*   Updated: 2022/04/14 02:43:21 by akadi            ###   ########.fr       */
+/*   Updated: 2022/04/15 02:13:49 by akadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,11 @@ typedef struct s_list
 }t_list;
 
 int		ft_atoi(const char *str);
+char **split_int(char **av);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
+char	*ft_strdup(const char *s);
 size_t		ft_strlen(const char *s);
+//char	*ft_strjoin(char const *s1, char const *s2);
 char    *ft_strjoin(char *buffers, char *buff);
 char	**ft_split(char const *s, char c);
 int		ft_lstsize(t_list *lst);
@@ -36,7 +39,8 @@ int		ft_isdigit(int c);
 void	ft_lstprint(t_list *lst);
 void	ft_lstadd_front(t_list **alst, t_list *tnew);
 t_list	*ft_lstlast(t_list *lst);
-void	ft_lstadd_back(t_list **lst, t_list *tnew);
+//void    ft_lstadd_back(t_list **lst, t_list *new);
+t_list	*ft_lstadd_back(t_list **lst, t_list *tnew);
 t_list	*ft_lstnew(int content);
 int		check_error(int ac, char **av);
 char	**split_int(char **av);

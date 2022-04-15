@@ -6,7 +6,7 @@
 #    By: akadi <akadi@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/06 20:27:44 by akadi             #+#    #+#              #
-#    Updated: 2022/04/14 02:42:41 by akadi            ###   ########.fr        #
+#    Updated: 2022/04/15 02:14:04 by akadi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,8 @@ SRCS=push_swap.c\
 	ft_strjoin.c\
 	ft_strlen.c\
 	ft_strncmp.c\
+	split_int.c\
+	ft_strdup.c\
 
 OBJS=$(SRCS:.c=.o)
 INCL= push_swap.h

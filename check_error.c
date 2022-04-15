@@ -6,7 +6,7 @@
 /*   By: akadi <akadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 15:45:40 by akadi             #+#    #+#             */
-/*   Updated: 2022/04/14 02:18:29 by akadi            ###   ########.fr       */
+/*   Updated: 2022/04/15 02:03:33 by akadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,21 +95,21 @@ int duplicate(char **av)
 	}
 	return (1);
 }
-char **split_int(char **av)
-{
-	char *str;
-	char **split;
-	int i;
+// char **split_int(char **av)
+// {
+// 	char *str;
+// 	char **split;
+// 	int i;
 
-	i = 1; 
-	while (av[i])
-	{
-		str = ft_strjoin(ft_strjoin(str, av[i]), " ");
-		i++;
-	}
-	split = ft_split(str,' ');
-	return (split);
-}
+// 	i = 1; 
+// 	while (av[i])
+// 	{
+// 		str = ft_strjoin(ft_strjoin(str, av[i]), " ");
+// 		i++;
+// 	}
+// 	split = ft_split(str,' ');
+// 	return (split);
+// }
 int check_error(int ac, char **av)
 {
 	int i;

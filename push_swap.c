@@ -6,7 +6,7 @@
 /*   By: akadi <akadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 15:23:43 by akadi             #+#    #+#             */
-/*   Updated: 2022/04/14 02:23:06 by akadi            ###   ########.fr       */
+/*   Updated: 2022/04/15 02:16:28 by akadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ t_list **fill_stack(t_list **stack_a, char **split)
 		ft_lstadd_back(stack_a, ft_lstnew(ft_atoi(split[i])));
 		i++;
 	}
-	// ft_lstprint(*stack_a);
 	return (stack_a);
 }
 int main(int ac, char **av)
@@ -31,7 +30,6 @@ int main(int ac, char **av)
 	char    **split;
 	t_list  **stack_a;
 	t_list  **stack_b;
-	int	i;
 
 	stack_a = malloc(sizeof(t_list *));
 	stack_b = malloc(sizeof(t_list *));
@@ -45,17 +43,7 @@ int main(int ac, char **av)
 		write(1, "Error\n",6);
 		exit(0);
 	}
-	else
-	{
-		i = 0;
-		while (split[i])
-		{
-			ft_lstadd_back(stack_a, ft_lstnew(ft_atoi(split[i])));
-			i++;
-		}
-		//stack_a = fill_stack(stack_a,split);
-		//ft_lstprint(*stack_a);
-	}
-	//sort_stack(stack_a, stack_b);
+	stack_a = fill_stack(stack_a,split);
+	sort_stack(stack_a, stack_b);
 	return (0);
 }

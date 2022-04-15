@@ -6,21 +6,45 @@
 /*   By: akadi <akadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 13:55:27 by akadi             #+#    #+#             */
-/*   Updated: 2022/04/14 00:40:27 by akadi            ###   ########.fr       */
+/*   Updated: 2022/04/15 01:06:07 by akadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *tnew)
-{
-	t_list	*temp;
+// void    ft_lstadd_back(t_list **lst, t_list *new)
+// {
+//     t_list    *temp;
 
-	temp = ft_lstlast(*lst);
-	if (temp)
-		temp -> next = tnew;
-	else if (temp == NULL)
-		*lst = tnew;
+//     if (lst)
+//     {
+//         if (*lst == NULL)
+//             *lst = new;
+//         else
+//         {
+//             temp = ft_lstlast((*lst));
+//             temp->next = new;
+//         }
+//     }
+// }
+t_list    *ft_lstadd_back(t_list **lst, t_list *tnew)
+{
+    t_list    *p;
+
+    if (*lst == NULL)
+    {
+        *lst = tnew;
+        return (*lst);
+    }
+	else
+	{
+    	p = NULL;
+    	p = *lst;
+    	while (p -> next)
+    	    p = p -> next;
+    	p -> next = tnew;
+	}
+	return (*lst);
 }
 // void	ft_lstadd_back(t_list *lst, t_list *tnew)
 // {

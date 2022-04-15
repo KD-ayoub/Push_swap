@@ -6,7 +6,7 @@
 /*   By: akadi <akadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 00:52:41 by akadi             #+#    #+#             */
-/*   Updated: 2022/04/11 20:28:54 by akadi            ###   ########.fr       */
+/*   Updated: 2022/04/15 01:58:13 by akadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,9 @@ void	sort_3(t_list **stack_a)
 		if ((list_index(stack_a, 0) > list_index(stack_a, 1)) 
 			&& (list_index(stack_a, 1) < list_index(stack_a, 2))
 			&& (list_index(stack_a,2) > list_index(stack_a, 0)))
+		{
 			swap_a(stack_a, *stack_a, 1);
+		}
 		if ((list_index(stack_a, 0) > list_index(stack_a, 1))
 			&& (list_index(stack_a, 1) > list_index(stack_a, 2)))
 		{
