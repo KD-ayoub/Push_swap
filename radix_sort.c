@@ -6,7 +6,7 @@
 /*   By: akadi <akadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 21:19:53 by akadi             #+#    #+#             */
-/*   Updated: 2022/04/13 23:44:11 by akadi            ###   ########.fr       */
+/*   Updated: 2022/04/19 00:25:02 by akadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	find_big(t_list **stack_a, int len)
 
 	i = 0;
 	big = list_index(stack_a, 0);
-	while(i < len)
+	while (i < len)
 	{
 		if (big < list_index(stack_a, i))
 			big = list_index(stack_a, i);
@@ -42,6 +42,7 @@ int	change_to_binary(int num)
 	}
 	return (i);
 }
+
 void	radix_sort(t_list **stack_a, t_list **stack_b, int len)
 {
 	int	i;
@@ -55,10 +56,9 @@ void	radix_sort(t_list **stack_a, t_list **stack_b, int len)
 	while (i < binlen)
 	{
 		j = 0;
-		//max = ft_lstsize(*stack_a);
 		while (j < max)
 		{
-			if ((((*stack_a) -> content >> i) & 1) == 1)
+			if ((((*stack_a)-> content >> i) & 1) == 1)
 				*stack_a = rotate_ra(stack_a, *stack_a, 1);
 			else
 				push_b(stack_a, stack_b);

@@ -6,7 +6,7 @@
 /*   By: akadi <akadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 21:57:29 by akadi             #+#    #+#             */
-/*   Updated: 2022/04/15 01:24:24 by akadi            ###   ########.fr       */
+/*   Updated: 2022/04/19 00:45:43 by akadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,24 +25,26 @@ int	find_index(int content, int *arr, int len)
 	}
 	return (-1);
 }
+
 t_list	*change_stack_a(t_list **stack_a, int *arr, int len)
 {
-	int	i;
-	int	index;
+	int		i;
+	int		index;
 	t_list	*p;
 
 	i = 0;
 	p = *stack_a;
 	while (i < len)
 	{
-		index = find_index((*stack_a) -> content, arr, len);
+		index = find_index((*stack_a)-> content, arr, len);
 		if (index != -1)
-			(*stack_a) -> content = index;
+			(*stack_a)-> content = index;
 		i++;
-		(*stack_a) = (*stack_a) -> next;
+		(*stack_a) = (*stack_a)-> next;
 	}
 	return (p);
 }
+
 int	*sort_array(int *arr, int len)
 {
 	int	i;
@@ -65,19 +67,18 @@ int	*sort_array(int *arr, int len)
 		}
 		i++;
 	}
-
-	
 	return (arr);
 }
+
 void	sort_100(t_list **stack_a, t_list **stack_b, int len)
 {
-	(void)stack_b;
 	int		i;
-	int		arr[len];
+	int		*arr;
 	int		*pt;
 	t_list	*p;
 
-	//arr = malloc(sizeof(int) * ft_lstsize(*stack_a));
+	(void)stack_b;
+	arr = malloc(sizeof(int) * len);
 	p = *stack_a;
 	pt = arr;
 	i = 0;

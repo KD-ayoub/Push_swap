@@ -6,13 +6,14 @@
 #    By: akadi <akadi@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/06 20:27:44 by akadi             #+#    #+#              #
-#    Updated: 2022/04/15 02:14:04 by akadi            ###   ########.fr        #
+#    Updated: 2022/04/19 03:15:14 by akadi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # CFLAGS = -Wall -Wextra -Werror
 CC= cc
 NAME=push_swap
+BNAME=checker
 CFLAGS= -Wall -Wextra -Werror
 SRCS=push_swap.c\
 	check_error.c\
@@ -36,9 +37,17 @@ SRCS=push_swap.c\
 	ft_strncmp.c\
 	split_int.c\
 	ft_strdup.c\
+	rotate_instructions.c\
+
+
+BONUS_SRC = checker.c\
+		open_prompt.c\
+		get_next_line.c\
+
 
 OBJS=$(SRCS:.c=.o)
-INCL= push_swap.h
+BONUS_OBJ = $(BONUS_SRC:.c=.o)
+INCL= header.h
 
 all:$(NAME)
 	@echo "\033[1;32m\
@@ -48,20 +57,26 @@ all:$(NAME)
 						██╔═══╝░██║░░░██║░╚═══██╗██╔══██║╚════╝░╚═══██╗░░████╔═████║░██╔══██║██╔═══╝░\n\
 						██║░░░░░╚██████╔╝██████╔╝██║░░██║░░░░░░██████╔╝░░╚██╔╝░╚██╔╝░██║░░██║██║░░░░░\n\
 						╚═╝░░░░░░╚═════╝░╚═════╝░╚═╝░░╚═╝░░░░░░╚═════╝░░░░╚═╝░░░╚═╝░░╚═╝░░╚═╝╚═╝░░░░░\n\033[0m"
-%.o: %.c $(INCL)
-	$(CC) $(CFLAGS) $< $(INCL) -c -g
 
 $(NAME):$(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) -g
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+
+
+$(BNAME):$(BONUS_OBJ) 
+	$(CC) $(CFLAGS) $(BONUS_OBJ) $(filter-out push_swap.o, $(OBJS)) -o $(BNAME)
+
+%.o: %.c $(INCL)
+	$(CC) $(CFLAGS) -c $<
+
+bonus : $(BNAME)
 
 clean:
 	rm -rf *.o
-	rm -rf ./libft/*.o
 
 fclean:clean
-	rm -rf *.a
 	rm -rf push_swap
+	rm -rf checker
 	
 re : fclean all
 
-.PHONY: all gnl utils bonus clean fclean re
+.PHONY: all bonus clean fclean re

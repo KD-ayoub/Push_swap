@@ -6,17 +6,18 @@
 /*   By: akadi <akadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 17:52:58 by akadi             #+#    #+#             */
-/*   Updated: 2022/04/15 02:13:49 by akadi            ###   ########.fr       */
+/*   Updated: 2022/04/19 02:42:17 by akadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HEADER_H
-#define HEADER_H
+# define HEADER_H
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <limits.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include <limits.h>
+# include "get_next_line/get_next_line.h"
 //#include "libft/libft.h"
 
 typedef struct s_list
@@ -26,12 +27,12 @@ typedef struct s_list
 }t_list;
 
 int		ft_atoi(const char *str);
-char **split_int(char **av);
+char	**split_int(char **av);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strdup(const char *s);
-size_t		ft_strlen(const char *s);
+size_t	ft_strlen(const char *s);
 //char	*ft_strjoin(char const *s1, char const *s2);
-char    *ft_strjoin(char *buffers, char *buff);
+char	*ft_strjoin(char *buffers, char *buff);
 char	**ft_split(char const *s, char c);
 int		ft_lstsize(t_list *lst);
 char	*ft_itoa(int n);
@@ -47,9 +48,9 @@ char	**split_int(char **av);
 int		duplicate(char **av);
 int		ft_isint(char *number, char *max, char *min);
 int		ft_isnbr(char *av);
-t_list	**fill_stack(t_list **stack_a,char **split);
+t_list	**fill_stack(t_list **stack_a, char **split);
 void	sort_stack(t_list **stack_a, t_list **stack_b);
-t_list	swap_a(t_list **stack, t_list *list,int check);
+t_list	swap_a(t_list **stack, t_list *list, int check);
 t_list	swap_b(t_list **stack, t_list *list, int check);
 void	push_a(t_list **stack_a, t_list **stack_b);
 void	push_b(t_list **stack_a, t_list **stack_b);
@@ -68,6 +69,7 @@ int		find_smallest(t_list **stack_a, int len);
 void	push_smallest(t_list **stack_a, t_list **stack_b, int len);
 void	sort_100(t_list **stack_a, t_list **stack_b, int len);
 void	radix_sort(t_list **stack_a, t_list **stack_b, int len);
-
+void	open_prompt(t_list **stack_a, t_list **stack_b);
+t_list	**fill_stack_bonus(t_list **stack_a, char **split);
 
 #endif

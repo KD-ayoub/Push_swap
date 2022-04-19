@@ -6,7 +6,7 @@
 /*   By: akadi <akadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 15:45:40 by akadi             #+#    #+#             */
-/*   Updated: 2022/04/15 02:03:33 by akadi            ###   ########.fr       */
+/*   Updated: 2022/04/18 23:16:28 by akadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,11 @@ int	ft_isdigit(int c)
 		return (1);
 	return (0);
 }
-int ft_isnbr(char *av)
+
+int	ft_isnbr(char *av)
 {
-	int i;
-	int len;
+	int	i;
+	int	len;
 
 	i = 0;
 	len = ft_strlen(av);
@@ -38,8 +39,8 @@ int ft_isnbr(char *av)
 		i++;
 	}
 	return (1);
-	
 }
+
 int	ft_isint(char *number, char *max, char *min)
 {
 	char	*num;
@@ -69,15 +70,15 @@ int	ft_isint(char *number, char *max, char *min)
 	return (0);
 }
 
-int duplicate(char **av)
+int	duplicate(char **av)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (av[i])
 	{
-		if ( !ft_isnbr(av[i]) || ft_isint(av[i],"2147483647","-2147483648"))
+		if (!ft_isnbr(av[i]) || ft_isint(av[i], "2147483647", "-2147483648"))
 			return (0);
 		i++;
 	}
@@ -95,25 +96,11 @@ int duplicate(char **av)
 	}
 	return (1);
 }
-// char **split_int(char **av)
-// {
-// 	char *str;
-// 	char **split;
-// 	int i;
 
-// 	i = 1; 
-// 	while (av[i])
-// 	{
-// 		str = ft_strjoin(ft_strjoin(str, av[i]), " ");
-// 		i++;
-// 	}
-// 	split = ft_split(str,' ');
-// 	return (split);
-// }
-int check_error(int ac, char **av)
+int	check_error(int ac, char **av)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	(void)ac;
 	i = 0;
@@ -122,4 +109,3 @@ int check_error(int ac, char **av)
 		return (0);
 	return (1);
 }
-

@@ -6,7 +6,7 @@
 /*   By: akadi <akadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 17:51:37 by akadi             #+#    #+#             */
-/*   Updated: 2022/04/14 02:09:11 by akadi            ###   ########.fr       */
+/*   Updated: 2022/04/18 23:21:07 by akadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_lstprint(t_list *lst)
 	temp = lst;
 	while (temp)
 	{
-		printf("%d  ",temp->content);
+		printf("%d  ", temp->content);
 		temp = temp->next;
 	}
 }

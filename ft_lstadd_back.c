@@ -6,7 +6,7 @@
 /*   By: akadi <akadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 13:55:27 by akadi             #+#    #+#             */
-/*   Updated: 2022/04/15 01:06:07 by akadi            ###   ########.fr       */
+/*   Updated: 2022/04/18 23:19:30 by akadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,22 +27,22 @@
 //         }
 //     }
 // }
-t_list    *ft_lstadd_back(t_list **lst, t_list *tnew)
+t_list	*ft_lstadd_back(t_list **lst, t_list *tnew)
 {
-    t_list    *p;
+	t_list	*p;
 
-    if (*lst == NULL)
-    {
-        *lst = tnew;
-        return (*lst);
-    }
+	if (*lst == NULL)
+	{
+		*lst = tnew;
+		return (*lst);
+	}
 	else
 	{
-    	p = NULL;
-    	p = *lst;
-    	while (p -> next)
-    	    p = p -> next;
-    	p -> next = tnew;
+		p = NULL;
+		p = *lst;
+		while (p -> next)
+			p = p -> next;
+		p -> next = tnew;
 	}
 	return (*lst);
 }
@@ -60,4 +60,3 @@ t_list    *ft_lstadd_back(t_list **lst, t_list *tnew)
 // 		p = p -> next;
 // 	p -> next = tnew;
 // }
-
