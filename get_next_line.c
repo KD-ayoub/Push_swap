@@ -6,7 +6,7 @@
 /*   By: akadi <akadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 14:20:36 by akadi             #+#    #+#             */
-/*   Updated: 2022/04/19 03:16:02 by akadi            ###   ########.fr       */
+/*   Updated: 2022/04/19 22:48:34 by akadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,6 @@ int	findnl(char *s)
 
 char	*ft_read(int fd, char *buf, char *str)
 {
-	char	*tmp;
 	int		i;
 
 	i = 1;
@@ -95,14 +94,9 @@ char	*ft_read(int fd, char *buf, char *str)
 			return (NULL);
 		}
 		buf[i] = '\0';
-		tmp = str;
-		if (!tmp)
-		{
-			tmp = malloc(1 * sizeof(char));
-			tmp[0] = '\0';
-		}
-		str = ft_strjoin(tmp, buf);
-		free(tmp);
+		if (!str)
+			str = ft_strdup("");
+		str = ft_strjoin(str, buf);
 	}
 	free(buf);
 	return (str);

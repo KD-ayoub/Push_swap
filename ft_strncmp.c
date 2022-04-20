@@ -6,7 +6,7 @@
 /*   By: akadi <akadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 21:41:35 by akadi             #+#    #+#             */
-/*   Updated: 2022/04/14 02:38:01 by akadi            ###   ########.fr       */
+/*   Updated: 2022/04/20 00:42:03 by akadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	{
 		if ((st1[i] < st2[i]) || (st1[i] > st2[i]))
 		{
-			return (st1[i] - st2[i]);
+			return (1);
 		}
 		i++;
 	}

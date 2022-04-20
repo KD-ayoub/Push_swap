@@ -6,7 +6,7 @@
 /*   By: akadi <akadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 00:18:51 by akadi             #+#    #+#             */
-/*   Updated: 2022/04/19 00:26:44 by akadi            ###   ########.fr       */
+/*   Updated: 2022/04/20 01:30:28 by akadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,7 @@ t_list	*rotate_rra(t_list **stack, t_list *list, int check)
 
 	p = list;
 	if (!ft_lstsize(*stack))
-	{
-		write(1, "Error", 5);
-		exit(0);
-	}
+		return (list);
 	while (p)
 	{
 		if (p -> next -> next == NULL)
@@ -45,10 +42,7 @@ t_list	*rotate_rrb(t_list **stack, t_list *list, int check)
 
 	p = list;
 	if (!ft_lstsize(*stack))
-	{
-		write(1, "Error", 5);
-		exit(0);
-	}
+		return (list);
 	while (p)
 	{
 		if (p -> next -> next == NULL)
@@ -72,10 +66,7 @@ t_list	*rotate_rb(t_list **stack, t_list *list, int check)
 	(void)stack;
 	p = list;
 	if (!ft_lstsize(list))
-	{
-		write(1, "Error", 5);
-		exit(0);
-	}
+		return (list);
 	while (p -> next != NULL)
 		p = p -> next;
 	newh = list -> next;
@@ -94,10 +85,7 @@ t_list	*rotate_ra(t_list **stack, t_list *list, int check)
 	(void)stack;
 	p = list;
 	if (!ft_lstsize(list))
-	{
-		write(1, "Error", 5);
-		exit(0);
-	}
+		return (list);
 	while (p -> next != NULL)
 		p = p -> next;
 	newh = list -> next;

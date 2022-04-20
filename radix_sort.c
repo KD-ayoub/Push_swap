@@ -6,7 +6,7 @@
 /*   By: akadi <akadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 21:19:53 by akadi             #+#    #+#             */
-/*   Updated: 2022/04/19 00:25:02 by akadi            ###   ########.fr       */
+/*   Updated: 2022/04/20 01:03:10 by akadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,11 @@ void	radix_sort(t_list **stack_a, t_list **stack_b, int len)
 			if ((((*stack_a)-> content >> i) & 1) == 1)
 				*stack_a = rotate_ra(stack_a, *stack_a, 1);
 			else
-				push_b(stack_a, stack_b);
+				push_b(stack_a, stack_b, 1);
 			j++;
 		}
 		while (ft_lstsize(*stack_b))
-			push_a(stack_a, stack_b);
+			push_a(stack_a, stack_b, 1);
 		i++;
 	}
 }

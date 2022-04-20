@@ -6,7 +6,7 @@
 /*   By: akadi <akadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 21:57:29 by akadi             #+#    #+#             */
-/*   Updated: 2022/04/19 00:45:43 by akadi            ###   ########.fr       */
+/*   Updated: 2022/04/20 02:21:43 by akadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,4 +91,5 @@ void	sort_100(t_list **stack_a, t_list **stack_b, int len)
 	pt = sort_array(pt, len);
 	*stack_a = change_stack_a(stack_a, arr, len);
 	radix_sort(stack_a, stack_b, len);
+	free(arr);
 }
