@@ -6,7 +6,7 @@
 /*   By: akadi <akadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 17:54:38 by akadi             #+#    #+#             */
-/*   Updated: 2022/04/20 01:47:50 by akadi            ###   ########.fr       */
+/*   Updated: 2022/04/20 22:38:54 by akadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,3 @@ void	push_b(t_list **stack_a, t_list **stack_b, int check)
 	if (check == 1)
 		write(1, "pb\n", 3);
 }
-

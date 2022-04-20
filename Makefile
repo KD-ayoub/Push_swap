@@ -6,7 +6,7 @@
 #    By: akadi <akadi@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/06 20:27:44 by akadi             #+#    #+#              #
-#    Updated: 2022/04/20 01:18:02 by akadi            ###   ########.fr        #
+#    Updated: 2022/04/20 21:27:47 by akadi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRCS=push_swap.c\
 	ft_lstadd_back.c\
 	ft_lstadd_front.c\
 	ft_lstnew.c\
+	ft_lstclear.c\
 	sort_3.c\
 	sort_4and_5.c\
 	sort_100.c\

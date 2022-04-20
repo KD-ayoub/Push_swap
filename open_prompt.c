@@ -6,7 +6,7 @@
 /*   By: akadi <akadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/17 00:10:51 by akadi             #+#    #+#             */
-/*   Updated: 2022/04/20 01:54:56 by akadi            ###   ########.fr       */
+/*   Updated: 2022/04/20 22:41:24 by akadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,6 @@ static void	check_instructions(char *str, t_list **a, t_list **b)
 
 void	ft_exit(int n)
 {
-	// if (n == 0)
-	// 	write(1, "Error\n", 6);
 	if (n == 0)
 		write(1, "OK\n", 3);
 	else if (n == -1)
@@ -93,7 +91,7 @@ void	ft_exit(int n)
 void	open_prompt(t_list **a, t_list **b)
 {
 	char	*instructions;
-	int	i;
+	int		i;
 
 	i = 0;
 	while (1)

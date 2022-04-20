@@ -12,10 +12,10 @@
 
 #include "header.h"
 
-t_list **fill_stack_bonus(t_list **stack_a, char **split)
+t_list	**fill_stack_bonus(t_list **stack_a, char **split)
 {
-	int i;
-	
+	int	i;
+
 	*stack_a = NULL;
 	i = 0;
 	while (split[i])
@@ -25,13 +25,13 @@ t_list **fill_stack_bonus(t_list **stack_a, char **split)
 	}
 	return (stack_a);
 }
-int main(int ac, char **av)
-{
-	char    **split;
-	t_list  **a;
-	t_list  **b;
 
-	(void)av;
+int	main(int ac, char **av)
+{
+	char	**split;
+	t_list	**a;
+	t_list	**b;
+
 	a = malloc(sizeof(t_list *));
 	b = malloc(sizeof(t_list *));
 	*b = NULL;
@@ -41,7 +41,7 @@ int main(int ac, char **av)
 	split = split_int(av);
 	if (!check_error(ac, split))
 	{
-		write(1, "Error\n",6);
+		write(1, "Error\n", 6);
 		exit(0);
 	}
 	a = fill_stack_bonus(a, split);

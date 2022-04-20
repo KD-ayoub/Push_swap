@@ -6,7 +6,7 @@
 /*   By: akadi <akadi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 15:23:43 by akadi             #+#    #+#             */
-/*   Updated: 2022/04/20 02:41:12 by akadi            ###   ########.fr       */
+/*   Updated: 2022/04/20 22:42:18 by akadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	free_all(t_list **stack_a, t_list **stack_b, char **split, int ac)
 		free(split[i++]);
 	}
 	free(split);
-	free(stack_a);
+	ft_lstclear(stack_a);
 	free(stack_b);
 }
 
@@ -39,7 +39,6 @@ t_list	**fill_stack(t_list **stack_a, char **split)
 	}
 	return (stack_a);
 }
-
 
 int	main(int ac, char **av)
 {
